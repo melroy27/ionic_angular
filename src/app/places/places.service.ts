@@ -15,13 +15,21 @@ export class PlacesService {
     new Place(
       'p2',
       'Maharaja Palace',
-      'In The City of Mumabai',
+      'In The City of Mumbai',
       'https://cdn.cdnparenting.com/articles/2018/12/702408349-H.jpg',
       25.99
     )
   ];
   get places() {
     return [...this.DataPlaces];
+  }
+  getPlace(id: string) {
+    return {
+      ...
+      this.DataPlaces.find(
+        p => p.id === id
+      )
+    };
   }
   constructor() { }
 }
