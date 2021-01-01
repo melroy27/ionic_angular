@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-button color="primary" (click)="onLogin()">
+  <ion-spinner color="primary" *ngIf="isLoading">
+
+  </ion-spinner>
+  <ion-button color="primary" *ngIf=" !isLoading" (click)="onLogin()">
     Login
   </ion-button>
 </ion-content>
