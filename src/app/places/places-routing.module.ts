@@ -16,14 +16,14 @@ const routes: Routes = [
             loadChildren: () => import('./discover/discover.module').then(m => m.DiscoverPageModule),
           },
           {
-            path: ':id',
+            path: ':placeId',
             loadChildren: () => import('./discover/place-detail/place-detail.module').then(m => m.PlaceDetailPageModule)
-          },
-          {
-            path: '',
-            redirectTo: '/places/tabs/discover',
-            pathMatch: 'full'
-          }
+           }
+          // {
+          //   path: '',
+          //   redirectTo: '/places/tabs/discover',
+          //   pathMatch: 'full'
+          // }
         ]
       },
       {
