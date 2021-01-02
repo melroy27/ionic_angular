@@ -11,13 +11,17 @@ export class PlacesService {
       'Manhattan Mansion',
       'In the heart of NY City',
       'https://viewfinder.expedia.com/wp-content/uploads/2020/01/new-york-date-ideas-header-1140x630.jpg',
-      45.99),
+      45.99,
+      new Date('2021-01-01'),
+      new Date('2021-12-31')),
     new Place(
       'p2',
       'Maharaja Palace',
       'In The City of Mumbai',
       'https://cdn.cdnparenting.com/articles/2018/12/702408349-H.jpg',
-      25.99
+      25.99,
+      new Date('2021-01-01'),
+      new Date('2021-12-31')
     )
   ];
   get places() {
