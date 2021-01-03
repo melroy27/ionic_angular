@@ -11,7 +11,7 @@ import { Place } from '../../places/place.model';
 export class CreateBookingComponent implements OnInit {
   @Input() selectedPlace: Place;
   @Input() selectedMode: 'select' | 'random';
-  @ViewChild('f') form: NgForm;
+  @ViewChild('f', { static: true }) form: NgForm;
   startDate: string;
   endDate: string;
 
@@ -50,20 +50,19 @@ export class CreateBookingComponent implements OnInit {
     if (!this.form.valid || !this.datesValid) {
       return;
     }
-
     this.modalCtl.dismiss({
       bookingData: {
         firstName: this.form.value['first-name'],
         lasttName: this.form.value['last-name'],
-        guestNumber: this.form.value['guest-number'],
-        startDate: this.form.value['date-from'],
-        endDate: this.form.value['date-to']
+        guestNumber: +this.form.value['guest-number'],
+        startDate: new Date(this.form.value['date-from']),
+        endDate: new Date(this.form.value['date-to'])
       }
     }, 'confirm');
   }
   datesValid() {
     const startDate = new Date(this.form.value['date-from']);
-    const endDate = new Date(this.form.value['end-from']);
+    const endDate = new Date(this.form.value['date-to']);
     return endDate > startDate;
   }
 }
