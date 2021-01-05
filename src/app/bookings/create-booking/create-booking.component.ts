@@ -20,7 +20,7 @@ export class CreateBookingComponent implements OnInit {
   ngOnInit() {
     const availableFrom = new Date(this.selectedPlace.availableFrom);
     const availabeTo = new Date(this.selectedPlace.availableTo);
-    if (this.selectedMode === 'random') {
+    if (this.selectedMode === 'random') {  // crating manual date
 
       // tslint:disable-next-line: max-line-length
       this.startDate = new Date
@@ -50,7 +50,7 @@ export class CreateBookingComponent implements OnInit {
     if (!this.form.valid || !this.datesValid) {
       return;
     }
-    this.modalCtl.dismiss({
+    this.modalCtl.dismiss({   // modal data
       bookingData: {
         firstName: this.form.value['first-name'],
         lasttName: this.form.value['last-name'],

@@ -19,7 +19,7 @@ export class AuthPage implements OnInit {
   onLogin() {
     this.isLoading = true;
     this.authService.login();
-    this.loadingCrtl.create({
+    this.loadingCrtl.create({ // using loading controller
       keyboardClose: true, message: 'Loggin in....'
     }).then(loadinEl => {
       setTimeout(() => {

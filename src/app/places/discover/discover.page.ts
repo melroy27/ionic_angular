@@ -34,9 +34,9 @@ export class DiscoverPage implements OnInit, OnDestroy {
       this.placesSub.unsubscribe();
     }
   }
-  onOpenMenu() {
-    this.menuCtrl.toggle();
-  }
+  // onOpenMenu() {
+  //   this.menuCtrl.toggle(); manually open
+  // }
   onFilterUpdate(event: CustomEvent) {
     console.log(event.detail);
     if (event.detail.value === 'all') {

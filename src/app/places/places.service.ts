@@ -9,6 +9,7 @@ import { Place } from './place.model';
 })
 export class PlacesService {
   private DataPlaces = new BehaviorSubject<Place[]>(
+    // dummy places
     [
       new Place(
         'p1',
@@ -29,7 +30,7 @@ export class PlacesService {
         25.99,
         new Date('2021-01-01'),
         new Date('2021-12-31'),
-        'abc'
+        'xyz'
       )
     ]
   );

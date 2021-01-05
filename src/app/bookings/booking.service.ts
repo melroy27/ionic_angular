@@ -16,9 +16,17 @@ export class BookingService {
     return this.dataBooking.asObservable();
   }
 
-  // tslint:disable-next-line: max-line-length
-  addBooking(placeId: string, placeTitle: string, placeImage: string, firstName: string, lastName: string, guestNumber: number, dateFrom: Date, dateTo: Date) {
-    // tslint:disable-next-line: max-line-length
+  addBooking(
+    placeId: string,
+    placeTitle: string,
+    placeImage: string,
+    firstName: string,
+    lastName: string,
+    guestNumber: number,
+    dateFrom: Date,
+    dateTo: Date
+  ) {
+
     const newBooking = new Booking(Math.random.toString(),
       placeId,
       this.authService.userId,

@@ -17,7 +17,7 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
   place: Place;
   isBookable = false;
   private placeSub: Subscription;
-  // tslint:disable-next-line: max-line-length
+
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
@@ -33,7 +33,7 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
       if (!paramMap.has('placeId')) {
-        this.navCtrl.navigateBack('/places/tabs/discover');
+        this.navCtrl.navigateBack('/places/tabs/discover'); // navigation controller
         return;
       }
       this.placeSub = this.placesService.getPlace(paramMap.get('placeId')).subscribe(place => {
@@ -47,6 +47,7 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
       this.placeSub.unsubscribe();
     }
   }
+  // creating an action sheet
   onBookPlace() {
     this.actionSheet.create({
       header: 'Choose',
@@ -73,7 +74,7 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
     });
     // this.navCrtl.navigateBack('/places/tabs/discover');
   }
-  openBookingModal(mode: 'select' | 'random') {
+  openBookingModal(mode: 'select' | 'random') {  // options for selection
     console.log(mode);
     this.modalCtl.create({
       component: CreateBookingComponent, componentProps: {
@@ -85,12 +86,11 @@ export class PlaceDetailPage implements OnInit, OnDestroy {
     }).then(resultData => {
       console.log(resultData.role, resultData.data);
       if (resultData.role === 'confirm') {
-        this.loadingCtrl.create({
+        this.loadingCtrl.create({  // show a spinner ...
           message: 'Booking Place...'
         }).then(loadingEl => {
           loadingEl.present();
           const data = resultData.data.bookingData;
-          // tslint:disable-next-line: max-line-length
           this.bookingService.addBooking(
             this.place.id,
             this.place.title,
